@@ -29,6 +29,7 @@ $(document).ready(function () {
             url: query,
             method: "GET"
         }).then(function (response) {
+            clear();
             console.log(response);
 
             for (var i = 0; i < response.data.length; i++) {
@@ -55,7 +56,7 @@ $(document).ready(function () {
 
                 $("#playerGif").append(playerDiv);
 
-
+               
 
             } // closing for loop of GIF 
             $(".gif").on("click", click); 
@@ -86,6 +87,7 @@ $(document).ready(function () {
     function clear() {
         $("#playerGif").empty();
         console.log("empty");
+        
     }
 
 
@@ -95,7 +97,7 @@ $(document).ready(function () {
 
 
     $("#select-player").on("click", function (event) {
-
+       
         event.preventDefault();
         inputPlayer = $("#player-input").val().trim();
         console.log("playerinput"+inputPlayer);
