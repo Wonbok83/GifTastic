@@ -1,8 +1,8 @@
 $(document).ready(function () { 
 
     //get the variables
-    var inputAnimal = "";
-    var animal = "";
+    var inputPlayer = "";
+    var playrer = "";
 
 
     $("button").on("click", search)
@@ -13,15 +13,15 @@ $(document).ready(function () {
     function search() {
             clear();
 
-        if (inputAnimal !== "") {
-            animal = inputAnimal
-            //if there is input save in animal variable
-        } else {
-            animal = $(this).attr("player");
+        if (inputPlayer !== "") {
+            player = inputPlayer
+            //if there is input save in player variable
+        }  else {
+            player = $(this).attr("player");
             //then get infro from button. 
 
         }
-        var query = "https://api.giphy.com/v1/gifs/search?q=" + animal + "&api_key=dc6zaTOxFJmzC&limit=10";
+        var query = "https://api.giphy.com/v1/gifs/search?q=" + player + "&api_key=dc6zaTOxFJmzC&limit=10";
 
         $.ajax({
             url: query,
@@ -31,7 +31,7 @@ $(document).ready(function () {
 
             for (var i = 0; i < response.data.length; i++) {
 
-                var animalDiv = $("<div>");
+                var playerDiv = $("<div>");
                 var rating = response.data[i].rating;
                 var p = $("<div>").text("Rating: " + rating);
 
@@ -48,10 +48,10 @@ $(document).ready(function () {
 
                 });
 
-                animalDiv.append(p);
-                animalDiv.append(animalImage);
+                playerDiv.append(p);
+                playerDiv.append(playerImage);
 
-                $("#animalGif").append(animalDiv);
+                $("#playerGif").append(playerDiv);
 
 
 
@@ -82,7 +82,7 @@ $(document).ready(function () {
 
 
     function clear() {
-        $("#animalGif").empty();
+        $("#playerGif").empty();
         console.log("empty");
     }
 
@@ -92,14 +92,14 @@ $(document).ready(function () {
 
 
 
-    $("#select-animal").on("click", function (event) {
+    $("#select-player").on("click", function (event) {
 
         event.preventDefault();
-        inputAnimal = $("#animal-input").val().trim();
+        inputplayer = $("#player-input").val().trim();
 
         var buttonName = $("<button>");
 
-        buttonName.text(inputAnimal);
+        buttonName.text(inputplayer);
 
          
 

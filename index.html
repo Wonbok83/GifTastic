@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Football player GIF</title>
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
@@ -17,27 +18,32 @@
 
 <body>
     <!-- html buttons -->
+    <div class = "jumbotron text-center" > 
+     <!-- Player search Box -->
+     <form id="search-player text-center">
+            <!-- Label for Text Box -->
+            <label for="player-input">Type your favorite basketball player name</label>
+            <!-- Text Input Box -->
+            <input type="text" id="player-input">
+            <br>
+    
+            <!-- Submit Button -->
+            <input id="select-player" type="submit" value="submit">
+    
+    
+        </form>
+   
+    </div>
+
     <div class="button">
         <button player="LeBron James">LeBron James</button>
         <button player="Kobe Bryant">Kobe Bryant</button>
         <button player="Michael Jordan">Michael Jordan</button>
     </div>
-    <!-- Animal search Box -->
-    <form id="search-animal">
-        <!-- Label for Text Box -->
-        <label for="animal-input">Type your favorite basketball player name</label>
-        <!-- Text Input Box -->
-        <input type="text" id="animal-input">
-        <br>
-
-        <!-- Submit Button -->
-        <input id="select-animal" type="submit" value="submit">
+  
 
 
-    </form>
-
-
-    <div id="animalGif"> 
+    <div id="playerGif"></div> 
         <!-- showing GIF -->
 
 
