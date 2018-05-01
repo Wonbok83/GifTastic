@@ -2,7 +2,7 @@ $(document).ready(function () {
 
     //get the variables
     var inputPlayer = "";
-    var playrer = "";
+    var player = "";
 
 
     $("button").on("click", search)
@@ -15,6 +15,8 @@ $(document).ready(function () {
 
         if (inputPlayer !== "") {
             player = inputPlayer
+            console.log(player);
+            
             //if there is input save in player variable
         }  else {
             player = $(this).attr("player");
@@ -95,11 +97,11 @@ $(document).ready(function () {
     $("#select-player").on("click", function (event) {
 
         event.preventDefault();
-        inputplayer = $("#player-input").val().trim();
-
+        inputPlayer = $("#player-input").val().trim();
+        console.log("playerinput"+inputPlayer);
         var buttonName = $("<button>");
 
-        buttonName.text(inputplayer);
+        buttonName.text(inputPlayer);
 
          
 
