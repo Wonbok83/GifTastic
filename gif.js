@@ -1,28 +1,23 @@
-$(document).ready(function () { 
+$(document).ready(function () {
 
     //get the variables
     var inputPlayer = "";
     var player = "";
 
 
-    $("button").on("click", search)
+    $(".button").on("click", "button", search);
     //listener for calling function search()
 
 
 
     function search() {
-            clear();
+        clear();
 
-        if (inputPlayer !== "") {
-            player = inputPlayer
-            console.log(player);
-            
-            //if there is input save in player variable
-        }  else {
+        
             player = $(this).attr("player");
             //then get infro from button. 
 
-        }
+        
         var query = "https://api.giphy.com/v1/gifs/search?q=" + player + "&api_key=dc6zaTOxFJmzC&limit=10";
 
         $.ajax({
@@ -56,10 +51,10 @@ $(document).ready(function () {
 
                 $("#playerGif").append(playerDiv);
 
-               
+
 
             } // closing for loop of GIF 
-            $(".gif").on("click", click); 
+            $(".gif").on("click", click);
             //after function search is done, GIF is created with pause and animate action. that is why it has to call click function after search function.  
         });
 
@@ -87,7 +82,7 @@ $(document).ready(function () {
     function clear() {
         $("#playerGif").empty();
         console.log("empty");
-        
+
     }
 
 
@@ -97,20 +92,21 @@ $(document).ready(function () {
 
 
     $("#select-player").on("click", function (event) {
-       
+
         event.preventDefault();
         inputPlayer = $("#player-input").val().trim();
-        console.log("playerinput"+inputPlayer);
+        console.log("playerinput" + inputPlayer);
         var buttonName = $("<button>");
 
         buttonName.text(inputPlayer);
+        buttonName.attr("player", inputPlayer);
 
-         
 
-        $(".button").append(buttonName); 
+
+        $(".button").append(buttonName);
         // making button class with user input.
         $("button").on("click", search);
-    
+
     });
 
 
